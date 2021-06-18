@@ -1,23 +1,23 @@
-# ƒNƒŠƒbƒvƒ{[ƒh‚ÉURL‚ªŠi”[‚³‚ê‚Ä‚¢‚½‚çA‚»‚ê‚ðHTMLŒ`Ž®‚ÌƒŠƒ“ƒN‚É•ÏŠ·‚·‚é
-# EŽÀsŽž‚ÍPowerShell V5 ‚ðŽw’è‚Ì‚±‚ÆBSet-Clipboard ‚Ì -AsHtml ƒpƒ‰ƒ[ƒ^[‚ª V5 ‚Å‚µ‚©Žg‚¦‚È‚¢
-# E¶¬‚·‚éƒŠƒ“ƒN‚ª‰pŒê‚È‚Ì‚ÍA“ú–{Œê‚Ì•¶Žš‰»‚¯–â‘è‚ð‰ðÁ‚Å‚«‚È‚©‚Á‚½‚©‚ç
+# ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«URLãŒæ ¼ç´ã•ã‚Œã¦ã„ãŸã‚‰ã€ãã‚Œã‚’HTMLå½¢å¼ã®ãƒªãƒ³ã‚¯ã«å¤‰æ›ã™ã‚‹
+# ãƒ»å®Ÿè¡Œæ™‚ã¯PowerShell V5 ã‚’æŒ‡å®šã®ã“ã¨ã€‚Set-Clipboard ã® -AsHtml ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ãŒ V5 ã§ã—ã‹ä½¿ãˆãªã„
+# ãƒ»ç”Ÿæˆã™ã‚‹ãƒªãƒ³ã‚¯ãŒè‹±èªžãªã®ã¯ã€æ—¥æœ¬èªžã®æ–‡å­—åŒ–ã‘å•é¡Œã‚’è§£æ¶ˆã§ããªã‹ã£ãŸã‹ã‚‰
 
-# PowerShell‚Ìƒo[ƒWƒ‡ƒ“‚ª•s“KØ‚È‚ç”²‚¯‚é
+# PowerShellã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãŒä¸é©åˆ‡ãªã‚‰æŠœã‘ã‚‹
 if ( (Get-Host).Version.Major -ne 5 ) {
 	Write-Host "This script requires powershell V5."
 	exit
 }
 
-# ƒNƒŠƒbƒvƒ{[ƒh“à—e‚ðƒeƒLƒXƒgŒ`Ž®‚ÅŽæ“¾
+# ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰å†…å®¹ã‚’ãƒ†ã‚­ã‚¹ãƒˆå½¢å¼ã§å–å¾—
 $clipboard_text = Get-Clipboard -Format Text
 
-# http‚©‚çŽn‚Ü‚é•¶Žš—ñ‚È‚çURL‚Æ”»’f
+# httpã‹ã‚‰å§‹ã¾ã‚‹æ–‡å­—åˆ—ãªã‚‰URLã¨åˆ¤æ–­
 if ( $clipboard_text -like "http*" )
 {
-	# HTMLƒ^ƒO‚ÅURL‚Ö‚ÌƒŠƒ“ƒN‚ðì‚èAHtmlŒ`Ž®‚ÅƒNƒŠƒbƒvƒ{[ƒh‚ÉÝ’è
-	$html_link = "<a href=""" + $clipboard_text + """><b><u><i>HERE!</i></u></b></a>"
+	# HTMLã‚¿ã‚°ã§URLã¸ã®ãƒªãƒ³ã‚¯ã‚’ä½œã‚Šã€Htmlå½¢å¼ã§ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«è¨­å®š
+	$html_link = "<a href=""" + $clipboard_text + """><b><i>HERE!</i></b></a>"
 	Set-Clipboard -AsHtml $html_link
 
-	# ¶¬“à—e‚ðƒRƒ“ƒ\[ƒ‹‚Éo—Í
+	# ç”Ÿæˆå†…å®¹ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›
 	Write-Host "Created Link:" $html_link
 }
